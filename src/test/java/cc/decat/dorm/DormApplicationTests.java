@@ -20,14 +20,7 @@ class DormApplicationTests {
     @Test
     void contextLoads() {
 
-
-        User user = userService.findUserByUserName("xiaoming");
-
-        System.out.println(user);
-
-        user.setPassword("666");
-
-        System.out.println(userService.updateById(user));
+        System.out.println("HelloWorld!!!");
     }
 
 }

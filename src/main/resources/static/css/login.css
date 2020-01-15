@@ -1,0 +1,12 @@
+
+
+.box {
+	margin: 0 auto;
+	text-align:center;
+}
+
+.login_form {
+	
+	display: inline-block;
+	width: 310px;
+}

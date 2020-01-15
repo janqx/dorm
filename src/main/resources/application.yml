@@ -1,0 +1,27 @@
+# 配置端口号
+server:
+  port: 8081
+
+
+spring:
+  # 配置数据库信息
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?useSSL=false
+    username: root
+    password: root
+
+# 关闭自动转换驼峰命名
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+
+# 设置系统管理员账户
+admin:
+  username: admin
+  password: admin
+
+
+
+
+

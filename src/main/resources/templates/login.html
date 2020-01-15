@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+ 
+    <title>登录页</title>
+    <link rel="stylesheet" href="https://www.layuicdn.com/layui-v2.5.5/css/layui.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+ 
+</head>
+<body>
+ 
+<div class="login-main">
+    <header class="layui-elip">登录</header>
+    <form class="layui-form form" action="/user/login" method="post">
+        <div class="layui-input-inline">
+            <input type="text" name="username" lay-verify="required" placeholder="用户名" autocomplete="off"
+                   class="layui-input">
+        </div>
+        <div class="layui-input-inline">
+            <input type="password" name="password" lay-verify="required" placeholder="密码" autocomplete="off"
+                   class="layui-input">
+        </div>
+		<div class="layui-input-inline">
+			<select name="identify" lay-verify="required">
+				<option value>请选择你的身份</option>
+				<option value ="student">学生</option>
+				<option value ="dormadmin">宿舍管理员</option>
+				<option value ="systemadmin">系统管理员</option>
+			</select>
+		</div>
+		<div class="layui-input-inline">
+			<input type="checkbox" lay-skin="primary" lay-filter="remember" title="记住密码" />
+		</div>
+        <div class="layui-input-inline login-btn">
+            <button lay-submit lay-filter="login" class="layui-btn">登录</button>
+        </div>
+        <hr />
+        <p><a href="javascript: layer.alert('注册账号请联系管理员~', {icon: 6});" class="fl">立即注册</a><a href="javascript: layer.alert('什么？！！密码都弄丢？你脑子咋没弄丢嘞！？自己联系管理员找回来！！！', {icon: 7});" class="fr">忘记密码？</a></p>
+    </form>
+</div>
+
+
+<script src="https://www.layuicdn.com/layui-v2.5.5/layui.js"></script>
+<script type="text/javascript">
+    layui.use(['form'], function () {
+
+	});
+</script>
+</body>
+</html>

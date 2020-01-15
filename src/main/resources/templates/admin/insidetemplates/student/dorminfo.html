@@ -1,0 +1,90 @@
+<div class="layui-card">
+	<div class="layui-card-header">
+		<p style="color: #000000; font-size: 18px;" th:text="${dorminfo}"></p>
+	</div>
+	<div class="layui-card-body">
+		<p style="color: #333; font-size: 14px;">寝室人员信息</p>
+		<table class="layui-hide" id="dorminfo-table-data"></table>
+	</div>
+</div>
+
+	
+<script type="text/javascript">
+
+	var retdata = [{
+		"id": "10001",
+		"name": "蒋其霞",
+		"phonenumber": "17674638850",
+		"college": "继续教育学院",
+		"grade": "大一",
+		"specialty": "Java",
+		"classes" : "一班",
+		"indate": "2016-10-14"
+	}]
+
+	$.post("student/dorminfo", function (data, status) {
+		if(status === 'success') {
+			retdata = data
+			console.log(retdata)
+			layui.use(['table'], function() {
+				var table = layui.table;
+
+				//展示已知数据
+				table.render({
+					elem: '#dorminfo-table-data',
+					cols: [
+						[ //标题栏
+							{
+								field: 'id',
+								title: 'ID',
+								width: 100,
+								sort: true
+							}, {
+							field: 'name',
+							title: '姓名',
+							width: 100
+						}, {
+							field: 'phonenumber',
+							title: '手机号',
+							width: 200
+						}, {
+							field: 'college',
+							title: '学院',
+							width: 200
+						}, {
+							field: 'grade',
+							title: '年级',
+							width: 100
+						}, {
+							field: 'specialty',
+							title: '专业',
+							width: 100
+						}, {
+							field: 'classes',
+							title: '班级',
+							width: 100
+						}, {
+							field: 'indate',
+							title: '入住时间',
+							width: 200,
+							sort: true
+						}
+						]
+					],
+					data: retdata
+					//,skin: 'line' //表格风格
+					,
+					even: true
+					//,page: true //是否显示分页
+					//,limits: [5, 7, 10]
+					//,limit: 5 //每页默认显示的数量
+				});
+
+			});
+		}
+	})
+
+
+
+
+</script>

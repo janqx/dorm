@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>学生控制台</title>
+		<link rel="stylesheet" href="https://www.layuicdn.com/layui-v2.5.5/css/layui.css">
+	</head>
+	<body class="layui-layout-body">
+		<div class="layui-layout layui-layout-admin">
+			<div class="layui-header">
+				<div class="layui-logo">学生控制台</div>
+				<ul class="layui-nav layui-layout-right">
+					<li class="layui-nav-item">
+						<!--/*@thymesVar id="user" type="cc.decat.dorm.model.Student"*/-->
+						<a href="javascript:;" th:text="${student.getName()}">
+							<img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+						</a>
+						<dl class="layui-nav-child">
+							<dd><a href="">切换账户</a></dd>
+							<dd><a href="">安全退出</a></dd>
+						</dl>
+					</li>
+					<!-- <li class="layui-nav-item"><a href="">退了</a></li> -->
+				</ul>
+			</div>
+
+			<div class="layui-side layui-bg-black">
+				<div class="layui-side-scroll">
+					<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+					<ul class="layui-nav layui-nav-tree" lay-filter="navItemList">
+						<li class="layui-nav-item">
+							<a class="" href="javascript:;" onClick="javascript: return false">扣分查询</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/user/admin/insidetemplates/student/absence" onClick="javascript: return false">缺寝</a></dd>
+								<dd><a href="javascript:;" onClick="javascript: return false">卫生</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a class="" href="javascript:;" onClick="javascript: return false">功能</a>
+							<dl class="layui-nav-child">
+								<dd><a href="javascript:;" onClick="javascript: return false">报修</a></dd>
+								<dd><a href="javascript:;" onClick="javascript: return false">快递</a></dd>
+								<dd><a href="javascript:;" onClick="javascript: return false">临时设备</a></dd>
+								<dd><a href="javascript:;" onClick="javascript: return false">水电费</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a class="" href="javascript:;">设置</a>
+							<dl class="layui-nav-child">
+								<dd><a href="/user/admin/insidetemplates/student/dorminfo" onClick="javascript: return false">宿舍信息</a></dd>
+								<dd><a href="/user/admin/insidetemplates/student/setmyinfo" onClick="javascript: return false">个人信息</a></dd>
+								<dd><a href="/user/admin/insidetemplates/student/setmypassword" onClick="javascript: return false">修改密码</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item"><a href="javascript:;">系统公告</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="layui-body" style="background-color: #eee;">
+				<!-- 内容主体区域 -->
+				<div id="frameBody" style="margin: 15px; padding: 15px; background-color: white; height: auto; border-radius: 3px;">
+
+				</div>
+			</div>
+
+			<div class="layui-footer">
+				<!-- 底部固定区域 -->
+				© layui.com - 底部固定区域
+			</div>
+		</div>
+		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://www.layuicdn.com/layui-v2.5.5/layui.js"></script>
+		<script>
+			//JavaScript代码区域
+			layui.use(['element', 'layer', 'form'], function() {
+				var element = layui.element
+				var layer = layui.layer
+				var form = layui.form
+				element.on('nav(navItemList)', function(obj) {
+					var href = obj[0].href
+					if (href != null && href != "") {
+						document.title = obj[0].text
+						var index = layer.load()
+						$('#frameBody').load(href)
+						layer.close(index)
+					}
+				})
+			});
+		</script>
+	</body>
+</html>

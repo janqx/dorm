@@ -25,4 +25,10 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> impl
 
         return this.list(new QueryWrapper<Student>().eq("flatsName", flatsName).eq("buildingNumber", buildingNumber).eq("dormNumber", dormNumber));
     }
+
+    @Override
+    public boolean isExistByUserName(String username) {
+
+        return this.getOne(new QueryWrapper<Student>().eq("username", username)) != null;
+    }
 }

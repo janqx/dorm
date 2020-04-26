@@ -30,9 +30,7 @@ public class StudentInsideTemplateController {
     @GetMapping("/user/admin/student")
     public String studentAdmin(Model model, @CookieValue(value = "sessionID", required = false) String sessionID) {
 
-        Student student = studentMap.get(sessionID);
-        System.out.println(student);
-        model.addAttribute("student", student);
+        model.addAttribute("student", studentMap.get(sessionID));
         return "admin/student";
     }
 
@@ -92,7 +90,6 @@ public class StudentInsideTemplateController {
             @CookieValue(value = "sessionID", required = false) String sessionID,
             @RequestParam(value = "oldpassword", required = false) String oldpassword,
             @RequestParam(value = "password", required = false) String password) {
-
         Map<String, String> result = new HashMap<>();
         result.put("msg", "未知错误!");
         result.put("icon", "2");

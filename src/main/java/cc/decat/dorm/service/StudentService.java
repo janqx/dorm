@@ -9,4 +9,5 @@ public interface StudentService extends IService<Student> {
 
     public Student getStudentByUserName(String username);
     public List<Student> findStudentListByDormNumber(String flatsName, String buildingNumber, Integer dormNumber);
+    public boolean isExistByUserName(String username);
 }

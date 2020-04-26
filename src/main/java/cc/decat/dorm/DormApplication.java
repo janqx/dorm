@@ -11,7 +11,6 @@ public class DormApplication {
     public static void main(String[] args) {
         System.out.println("start...");
         SpringApplication.run(DormApplication.class, args);
-
     }
 
 }

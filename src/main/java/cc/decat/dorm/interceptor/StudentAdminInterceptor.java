@@ -16,8 +16,8 @@ import java.util.Map;
 @Component
 public class StudentAdminInterceptor extends HandlerInterceptorAdapter {
 
-    private Map<String, Student> studentMap = SessionMap.get("student");
     private Map<String, User> userMap = SessionMap.get("user");
+    private Map<String, Student> studentMap = SessionMap.get("student");
 
     @Resource
     private StudentService studentService;

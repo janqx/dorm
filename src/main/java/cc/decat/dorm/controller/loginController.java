@@ -2,12 +2,8 @@ package cc.decat.dorm.controller;
 
 import cc.decat.dorm.model.User;
 import cc.decat.dorm.service.UserService;
-import cc.decat.dorm.service.impl.UserServiceImpl;
 import cc.decat.dorm.session.SessionMap;
-import org.springframework.boot.web.servlet.server.Session;
-import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.validation.constraints.NotNull;
 import java.util.Map;
 import java.util.UUID;
 
